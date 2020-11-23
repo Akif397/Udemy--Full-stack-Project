@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 
 class Footer extends Component {
     state = {
-        name: 'Akif'
+        name: '',
+        age: 35,
+        isLogin: false
+    }
+
+    componentDidMount(){
+        this.setState({name: 'MyName'})
     }
 
     changed = evt => {
@@ -11,11 +17,18 @@ class Footer extends Component {
     }
 
     render() {
-        return (
+        const animals = ['cat', 'tiger', 'lion', 'dog',]
+        return (   
             <React.Fragment>
-                <h2 onClick={this.props.myAlert}>{this.props.trademark}</h2>
-                <input value={ this.state.name } onChange={this.changed} type="Text"/>
-            </React.Fragment>
+                { animals.map( animal => {
+                    return(
+                        <React.Fragment key={animal}>
+                            <h1> { animal } </h1>
+                        </React.Fragment>
+                    )
+                })}
+            </React.Fragment>             
+                
         )
     }
 }
